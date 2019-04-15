@@ -1,0 +1,10 @@
+# OS files to ignore
+.DS_Store
+Thumbs.db
+
+# Editor files to ignore
+*.iml
+.idea/*
+
+# ignore compiled .class files
+out/
