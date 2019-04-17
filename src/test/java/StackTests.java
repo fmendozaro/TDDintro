@@ -1,35 +1,54 @@
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Stack;
+
+import static org.junit.Assert.*;
 
 public class StackTests {
 
-    Stack names;
+    Stack<String> emptyNamesStack;
+    Stack<String> oneNamesStack;
+    Stack<String> manyNamesStack;
 
     @Before
     public void setUp(){
-        names = new Stack();
+        emptyNamesStack = new Stack<String>();
+        oneNamesStack = new Stack<String>();
+        oneNamesStack.push("Fer");
+        manyNamesStack = new Stack<String>();
+        manyNamesStack.push("Ryan");
+        manyNamesStack.push("Justin");
+        manyNamesStack.push("Sophie");
+        manyNamesStack.push("Daniel");
     }
 
     @Test
     public void testIsEmpty(){
-        assertEquals(true, names.isEmpty());
+        assertTrue(emptyNamesStack.isEmpty());
+        assertFalse(oneNamesStack.isEmpty());
+        assertFalse(manyNamesStack.isEmpty());
     }
 
     @Test
-    public void testAddOne(){
-        String name = "Fer";
-        names.push(name);
-        assertEquals(1, names.search(name));
+    public void testSize(){
+        assertSame(0, emptyNamesStack.size());
+        assertSame(1, oneNamesStack.size());
+        assertSame(4, manyNamesStack.size());
     }
 
     @Test
-    public void testIsNotEmpty(){
-        assertEquals(false, names.isEmpty());
+    public void testAdd(){
+        String name = "Stacey";
+        emptyNamesStack.push(name);
+        assertEquals(1, emptyNamesStack.search(name));
     }
 
+    @Test
+    public void testRemove(){
+        assertSame(1, oneNamesStack.size());
+        oneNamesStack.pop();
+        assertSame(0, oneNamesStack.size());
 
+    }
 }
