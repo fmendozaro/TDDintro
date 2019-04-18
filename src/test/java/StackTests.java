@@ -51,4 +51,11 @@ public class StackTests {
         assertSame(0, oneNamesStack.size());
 
     }
+
+    @Test
+    public void testContains(){
+        assertSame(-1,emptyNamesStack.search("Fer"));
+        assertSame(1,oneNamesStack.search("Fer"));
+        assertSame(4,manyNamesStack.search("Ryan"));
+    }
 }
